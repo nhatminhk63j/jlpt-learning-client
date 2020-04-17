@@ -1,0 +1,14 @@
+.register{
+    height: 80vh;
+    background-color: rgb(255, 255, 255);
+
+    &__form{
+        min-width: 500px;
+        font-size: 1.2rem;
+
+        button{
+            width: 100%;
+            font-size: 1.2rem;
+        }
+    }
+}

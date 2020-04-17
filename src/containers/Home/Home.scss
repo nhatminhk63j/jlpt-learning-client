@@ -1,0 +1,51 @@
+.homepage{
+    padding-top: 60px;
+
+    &__header{
+        padding: 100px;
+        background-color: rgb(243, 243, 255);
+        height: 60vh;
+        background-image: url(https://dethijlpt.com/static/media/logo2.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+
+        &__title{
+            font-size: 2.3rem;
+            font-weight: 700;
+        }
+
+        img{
+            padding-right: 30px;
+            margin-bottom: 50px;
+        }
+
+        &__select{
+            width: 450px;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        &__button{
+            padding: 8px 20px;
+        }
+    }
+
+    &__content{
+        &__title{
+            padding: 20px 0;
+            background-color: #6A8FE1;
+            color:#fff;
+
+            h2{
+                font-size: 2.3rem;
+                padding: 40px 0 20px 0;
+                font-weight: 700;
+            }
+            p{
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
