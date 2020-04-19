@@ -10,6 +10,9 @@ import Chart from '../Chart/Chart';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Exams from '../Exams/Exams';
+import Practice from '../Practise/Practice';
+import PracticeTest from '../Practise/PracticeTest/PracticeTest';
+import EntryPractice from '../Practise/EntryPractice/EntryPractice';
 
 class Menu extends Component {
     render() {
@@ -37,9 +40,12 @@ class Menu extends Component {
 
                 <Route exact path="/" component={Home} />
                 <Route exact path="/chart" component={Chart} />
+                <Route exact path="/practise" component={Practice} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/exams/:id" component={Exams} />
+                <Route exact path="/practice/:level/:category" component={PracticeTest} />
+                <Route exact path="/practice/:level/:category/:id" component={EntryPractice} />
             </BrowserRouter>
         );
     }

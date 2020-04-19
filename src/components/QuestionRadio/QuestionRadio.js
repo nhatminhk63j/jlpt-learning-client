@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './QuestionRadio.scss'
 
 function convertKandi(str){
     if(str.includes('*') === false) return str;

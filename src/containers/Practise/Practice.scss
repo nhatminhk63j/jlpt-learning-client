@@ -1,0 +1,21 @@
+.practice {
+    padding-top: 100px;
+
+    .card-practice {
+        margin-top: 20px;
+        margin-right: 40px;
+        padding: 20px;
+        box-shadow: 0 0 5px rgb(206, 199, 199);
+        border-radius: 10px;
+
+        &:hover {
+            transform: scale(1.03);
+            transition: linear 0.4s;
+        }
+
+        .btn-practice a{
+            color: #fff !important;
+            text-decoration: none;
+        }
+    }
+}
