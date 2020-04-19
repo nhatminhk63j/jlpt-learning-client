@@ -28,7 +28,7 @@ class Menu extends Component {
                             <NavLink to="/chart" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faChartLine} /> Chart</NavLink>
                             </Nav>
                             <div>
-                                <NavLink to="/practise" activeClassName="active-link" className="menupage__link">
+                                <NavLink to="/practice" activeClassName="active-link" className="menupage__link">
                                     <Button variant="danger" className="menupage__link__button"><FontAwesomeIcon icon={faAngleDoubleRight} /> Practise</Button>
                                 </NavLink>
                                 <NavLink to="/login" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faSignInAlt} /> Login</NavLink>
@@ -40,7 +40,7 @@ class Menu extends Component {
 
                 <Route exact path="/" component={Home} />
                 <Route exact path="/chart" component={Chart} />
-                <Route exact path="/practise" component={Practice} />
+                <Route exact path="/practice" component={Practice} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/exams/:id" component={Exams} />

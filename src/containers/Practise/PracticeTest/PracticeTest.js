@@ -28,7 +28,7 @@ class PracticeTest extends Component {
 
                     <div className="row practice-list">
                         {data.map((item, index) => (
-                            <div className="practice-item col-md-12">
+                            <div className="practice-item col-md-12" key={item._id}>
                                 <div className="d-flex justify-content-around">
                                 <h5>Exam number {` ${++index}`}</h5>
                                     <button className="btn btn-primary">
