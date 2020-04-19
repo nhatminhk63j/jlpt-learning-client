@@ -5,6 +5,7 @@ import {Button, Row, Col} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faFilter} from '@fortawesome/free-solid-svg-icons';
 import CardTest from '../../components/CardTest/CardTest';
+import Footer from '../Footer/Footer'
 
 const options = [
     { value: '1', label: 'N1' },
@@ -72,6 +73,7 @@ class Home extends Component {
                         </Row>
                     </div>
                 </div>
+                <Footer />
             </div>
         );
     }
