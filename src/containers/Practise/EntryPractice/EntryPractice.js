@@ -87,7 +87,7 @@ class EntryPractice extends Component {
                                     className="text-center" 
                                     style={this.state.data.length === 0 ? {display: 'block'} : {display: 'none'}}
                                 >
-                                    <img src="https://thumbs.gfycat.com/SimilarPlumpBarasingha-max-1mb.gif" alt=""/>
+                                    <img src="https://rdmedistyles.com/assets/front/images/loading.gif" alt=""/>
                                 </div>
                                 {this.state.data.map((item, index) => (
                                     <div>
