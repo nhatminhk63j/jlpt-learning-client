@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './EntryPractice.scss'
 import Axios from 'axios';
 import QuestionRadio from '../../../components/QuestionRadio/QuestionRadio';
+import Countdown from '../../../components/Countdown/Countdown';
 
 class EntryPractice extends Component {
     constructor(props){
@@ -32,7 +33,8 @@ class EntryPractice extends Component {
     }
 
     finishExam = (e) => {
-        e.preventDefault();
+        if(e) e.preventDefault();
+        
         const {data, result} = this.state;
         let point = 0;
         for(let item of data) {
@@ -61,13 +63,13 @@ class EntryPractice extends Component {
         var arrPath = path.split('/');
         arrPath.splice(arrPath.length - 1, 1);
         path = arrPath.join('/');
-        ///practice/n5/vocabulary/5e9bbc8c91156f046e4ef15f
+        
         return (
             <div className="entry-practice">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-2"></div>
-                        <div className="col-md-8">
+                        <div className="col-md-8 practice-content">
                             <div className="router">
                                 <a href="#"> {arrPath[2]} </a><span> > </span>
                                 <a href={'/' + arrPath[1]}> {arrPath[1]} </a> <span> > </span>
@@ -82,13 +84,17 @@ class EntryPractice extends Component {
                                 <a href="" onClick={this.displayResult} style={{fontSize: "1.2rem", marginTop: 20}}>Review your assignment</a>
                             </div>
                             <div style={this.state.displayResult ? {display: 'none'} : {display: 'block'}}>
+                                {this.state.data.length ? <Countdown time={300} callback={this.finishExam} /> : ''}
                                 <p className="title-entry-practice"> 質問を注意深く読み、最も正確な答えを選択してください。</p>
                                 <div 
                                     className="text-center" 
                                     style={this.state.data.length === 0 ? {display: 'block'} : {display: 'none'}}
                                 >
-                                    <img src="https://rdmedistyles.com/assets/front/images/loading.gif" alt=""/>
+                                    <div className="spinner-border text-primary m-5" role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </div>
                                 </div>
+                                
                                 {this.state.data.map((item, index) => (
                                     <div>
                                         <QuestionRadio item={item} id={item._id} index={index} key={item._id} radioOnchange={this.radioOnchange} />
@@ -96,7 +102,7 @@ class EntryPractice extends Component {
                                             style={this.state.displayCorrect ? {display: 'block'} : {display: 'none'}} 
                                             className="correct"
                                         >
-                                            Corect answer:  {item["answer" + item.key]} 
+                                            <span>Corect answer: </span> {item["answer" + item.key]} 
                                         </p>
                                     </div>
                                 ))}
@@ -134,6 +140,10 @@ class EntryPractice extends Component {
                                 >
                                     <a href={path} style={{color: '#fff', textDecoration: 'none'}}>Practice more...</a>
                                 </button>
+
+                                <div className="practice-footer">
+
+                                </div>
                             </div>
                         </div>
                         <div className="col-md-2"></div>

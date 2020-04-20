@@ -1,10 +1,12 @@
 .entry-practice {
     padding-top: 100px;
+    height: 100vh;
+    overflow-y: scroll;
 
     .title-entry-practice {
         color: #fff;
         background-color: rgb(117, 117, 228);
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         padding: 20px;
     }
 
@@ -14,8 +16,18 @@
 
     .correct {
         border: 1px solid rgb(204, 196, 196);
+        border-radius: 2px;
         padding: 10px 10px;
+        font-weight: 700;
+        font-family: 'Sawarabi Mincho', sans-serif;
+        font-size: 1.1rem;
+
+        span {
+            color: #155724;
+            font-weight: 400;
+        }
     }
+
 }
 
 .router {

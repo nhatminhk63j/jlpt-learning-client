@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 .radio{
     color: #464646;
     font-weight: 550;
     font-size: 1.1rem;
     margin-bottom: 10px;
-    // border-bottom: 3px solid rgba($color: #574d4d, $alpha: 0.5);
+    font-family: 'Sawarabi Mincho', sans-serif;
 
     &__radio {
         cursor: pointer;
