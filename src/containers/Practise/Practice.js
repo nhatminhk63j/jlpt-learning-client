@@ -5,61 +5,124 @@ class Practice extends Component {
     render() {
         return (
             <div className="practice">
-                <h2 className="practice-title text-center">practice</h2>
-                <div className="container">
-                    <h3 className="n5-practice<h2>{title}</h2> practice-category">N5</h3>
+                <h2 className="practice-title text-center">Practice to success</h2>
+                <div className="container practice-container">
+                    
                     <div className="row">
-                        <div className="col-md-4">
-                            <div className="card-practice text-center">
-                                <h4>Vocabulary</h4>
-                                <p>This practice section will help you get the most out of your vocabulary test. Suitable for Japanese certification exams such as natest, jlpt ...</p>
-                                <div className="btn btn-danger btn-practice"><a href="/practice/n5/vocabulary">practice vocabulary now</a></div>
+                        <div className="col-md-3">
+                            <h3 className="n5-practice practice-category">N5</h3>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n5/vocabulary">Vocabulary</a></div>
                             </div>
                         </div>
                         
-                        <div className="col-md-4">
-                            <div className="card-practice text-center">
-                                <h4>Kanji</h4>
-                                <p>This practice section will help you get the most out of your kanji test. Suitable for Japanese certification exams such as natest, jlpt ...</p>
-                                <div className="btn btn-danger btn-practice"><a href="/practice/n5/kanji">practice kanji now</a></div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n5/kanji">Kanji</a></div>
                             </div>
                         </div>
 
-                        <div className="col-md-4">
-                            <div className="card-practice text-center">
-                                <h4>Grammar</h4>
-                                <p>This practice section will help you get the most out of your grammar test. Suitable for Japanese certification exams such as natest, jlpt ...</p>
-                                <div className="btn btn-danger btn-practice"><a href="/practice/n5/grammar">practice grammar now</a></div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n5/grammar">Grammar</a></div>
                             </div>
                         </div>
                     </div>
 
-                    <h3 className="n4-practice practice-category">N4</h3>
                     <div className="row">
-                        <div className="col-md-4">
-                            <div className="card-practice text-center">
-                                <h4>Vocabulary</h4>
-                                <p>This practice section will help you get the most out of your vocabulary test. Suitable for Japanese certification exams such as natest, jlpt ...</p>
-                                <div className="btn btn-danger btn-practice"><a href="/practice/n4/vocabulary">practice vocabulary now</a></div>
+                        <div className="col-md-3">
+                            <h3 className="n4-practice practice-category">N4</h3>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n4/vocabulary">Vocabulary</a></div>
                             </div>
                         </div>
                         
-                        <div className="col-md-4">
-                            <div className="card-practice text-center">
-                                <h4>Kanji</h4>
-                                <p>This practice section will help you get the most out of your kanji test. Suitable for Japanese certification exams such as natest, jlpt ...</p>
-                                <div className="btn btn-danger btn-practice"><a href="/practice/n4/kanji">practice kanji now</a></div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n4/kanji">Kanji</a></div>
                             </div>
                         </div>
 
-                        <div className="col-md-4">
-                            <div className="card-practice text-center">
-                                <h4>Grammar</h4>
-                                <p>This practice section will help you get the most out of your grammar test. Suitable for Japanese certification exams such as natest, jlpt ...</p>
-                                <div className="btn btn-danger btn-practice"><a href="/practice/n4/grammar">practice grammar now</a></div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n4/grammar">Grammar</a></div>
                             </div>
                         </div>
                     </div>
+
+                    <div className="row">
+                        <div className="col-md-3">
+                            <h3 className="n3-practice practice-category">N3</h3>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n3/vocabulary">Vocabulary</a></div>
+                            </div>
+                        </div>
+                        
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n3/kanji">Kanji</a></div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n3/grammar">Grammar</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="col-md-3">
+                            <h3 className="n2-practice practice-category">N2</h3>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n2/vocabulary">Vocabulary</a></div>
+                            </div>
+                        </div>
+                        
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n2/kanji">Kanji</a></div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n2/grammar">Grammar</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        <div className="col-md-3">
+                            <h3 className="n1-practice practice-category">N1</h3>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n1/vocabulary">Vocabulary</a></div>
+                            </div>
+                        </div>
+                        
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n1/kanji">Kanji</a></div>
+                            </div>
+                        </div>
+
+                        <div className="col-md-3">
+                            <div className="card-practice">
+                                <div className="btn btn-default btn-practice"><a href="/practice/n1/grammar">Grammar</a></div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>

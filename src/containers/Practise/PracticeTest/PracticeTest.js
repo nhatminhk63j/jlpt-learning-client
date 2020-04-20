@@ -25,8 +25,16 @@ class PracticeTest extends Component {
             <div className="practice-test">
                 <div className="container">
                     <h2>{title}</h2>
-
-                    <div className="row practice-list">
+                    <div 
+                        className="text-center" 
+                        style={data.length === 0 ? {display: 'block'} : {display: 'none'}}
+                    >
+                        <div className="spinner-border text-primary m-5" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    {data.length ? <div className="row practice-list">
+                        
                         {data.map((item, index) => (
                             <div className="practice-item col-md-12" key={item._id}>
                                 <div className="d-flex justify-content-around">
@@ -37,7 +45,7 @@ class PracticeTest extends Component {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div> : ''}
                 </div>
             </div> 
         );
