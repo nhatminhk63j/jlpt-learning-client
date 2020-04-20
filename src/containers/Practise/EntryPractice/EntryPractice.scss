@@ -21,4 +21,8 @@
 .router {
     font-size: 1.2rem;
     color: rgb(61, 61, 221);
+
+    a {
+        text-transform: capitalize;
+    }
 }

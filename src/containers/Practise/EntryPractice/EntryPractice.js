@@ -61,6 +61,7 @@ class EntryPractice extends Component {
         var arrPath = path.split('/');
         arrPath.splice(arrPath.length - 1, 1);
         path = arrPath.join('/');
+        ///practice/n5/vocabulary/5e9bbc8c91156f046e4ef15f
         return (
             <div className="entry-practice">
                 <div className="container">
@@ -68,14 +69,17 @@ class EntryPractice extends Component {
                         <div className="col-md-2"></div>
                         <div className="col-md-8">
                             <div className="router">
-                                <a href="#">N5</a><span> > </span>
-                                <a href={'/' + arrPath[1]}>Practice</a> <span> > </span>
-                                <a href={path}>Vocabulary</a>
+                                <a href="#"> {arrPath[2]} </a><span> > </span>
+                                <a href={'/' + arrPath[1]}> {arrPath[1]} </a> <span> > </span>
+                                <a href={path}> {arrPath[3]} </a>
                             </div>
                             <h2 className="text-center">Practice Exam</h2>
                             <div style={this.state.displayResult ? {display: 'block'} : {display: 'none'}}>
                                 <h3 >Result: {` ${this.state.point}/10`} </h3>
-                                <a href="" onClick={this.displayResult}>See result</a>
+                                <div class="progress">
+                                    <div class="progress-bar w-75" role="progressbar" aria-valuenow={this.state.point} aria-valuemin="0" aria-valuemax="10"></div>
+                                </div>
+                                <a href="" onClick={this.displayResult} style={{fontSize: "1.2rem", marginTop: 20}}>Review your assignment</a>
                             </div>
                             <div style={this.state.displayResult ? {display: 'none'} : {display: 'block'}}>
                                 <p className="title-entry-practice"> 質問を注意深く読み、最も正確な答えを選択してください。</p>
@@ -96,19 +100,39 @@ class EntryPractice extends Component {
                                         </p>
                                     </div>
                                 ))}
-                                <button 
-                                    className="btn btn-primary btn-block" 
-                                    onClick={this.finishExam}
-                                    style={this.state.displayCorrect ? {display: 'none'} : {display: 'block'}}
-                                >
+
+                                <div style={this.state.displayCorrect ? {display: 'none'} : {display: 'block'}}>
+                                    <button type="button" className="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
                                     Finish
-                                </button>
+                                    </button>
+
+                                    {/* Modal */}
+                                    <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog" role="document">
+                                            <div className="modal-content">
+                                                <div className="modal-header">
+                                                    <h5 className="modal-title" id="exampleModalLabel">Confirm submission</h5>
+                                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div className="modal-body">
+                                                    If you are sure with your work, press the finish button
+                                                </div>
+                                                <div className="modal-footer">
+                                                    <button type="button" className="btn btn-secondary mr-3" data-dismiss="modal">Back to exam</button>
+                                                    <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.finishExam}>Finish</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <button 
                                     className="btn btn-primary"
                                     style={this.state.displayCorrect ? {display: 'block'} : {display: 'none'}}
                                 >
-                                    <a href={path}>Practice more...</a>
+                                    <a href={path} style={{color: '#fff', textDecoration: 'none'}}>Practice more...</a>
                                 </button>
                             </div>
                         </div>
