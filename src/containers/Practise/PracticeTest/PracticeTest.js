@@ -37,7 +37,7 @@ class PracticeTest extends Component {
                         
                         {data.map((item, index) => (
                             <div className="practice-item col-md-12" key={item._id}>
-                                <div className="d-flex justify-content-around">
+                                <div className="d-flex justify-content-around align-items-center">
                                 <h5>Exam number {` ${++index}`}</h5>
                                     <button className="btn btn-primary">
                                         <a href={path + '/' + item._id}>Practice now</a>
