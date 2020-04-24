@@ -40,9 +40,12 @@ class Login extends Component {
                 password: password
             })).then(res => {
                 if(res.data.cookies){ // login success
-                    setUserToken(res.data.cookie);
+                    setUserToken(res.data.cookies);
                     const {location, history} = this.props;
-                    const from = location.state.from || {pathname: '/'};
+                    var from = {pathname: '/'};
+                    if(location.state){
+                        from = location.state.from;
+                    }
                     history.replace(from);
                 } else { // login fail
                     const errors = {message: res.data.message};
