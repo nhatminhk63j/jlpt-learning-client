@@ -31,11 +31,15 @@ class Login extends Component {
         e.preventDefault();
         const {email, password} = this.state;
         if(email && password) {
-            userApi.login({
+            console.log(JSON.stringify({
                 email: email,
                 password: password
-            }).then(res => {
-                if(res.data.cookie){ // login success
+            }))
+            userApi.login(JSON.stringify({
+                email: email,
+                password: password
+            })).then(res => {
+                if(res.data.cookies){ // login success
                     setUserToken(res.data.cookie);
                     const {location, history} = this.props;
                     const from = location.state.from || {pathname: '/'};

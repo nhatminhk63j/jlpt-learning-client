@@ -71,15 +71,15 @@ class EntryPractice extends Component {
                         <div className="col-md-2"></div>
                         <div className="col-md-8 practice-content">
                             <div className="router">
-                                <a href="#"> {arrPath[2]} </a><span> > </span>
+                                <a href="/"> {arrPath[2]} </a><span> > </span>
                                 <a href={'/' + arrPath[1]}> {arrPath[1]} </a> <span> > </span>
                                 <a href={path}> {arrPath[3]} </a>
                             </div>
                             <h2 className="text-center">Practice Exam</h2>
                             <div style={this.state.displayResult ? {display: 'block'} : {display: 'none'}}>
                                 <h3 >Result: {` ${this.state.point}/10`} </h3>
-                                <div class="progress">
-                                    <div class="progress-bar w-75" role="progressbar" aria-valuenow={this.state.point} aria-valuemin="0" aria-valuemax="10"></div>
+                                <div className="progress">
+                                    <div className="progress-bar w-75" role="progressbar" aria-valuenow={this.state.point} aria-valuemin="0" aria-valuemax="10"></div>
                                 </div>
                                 <a href="" onClick={this.displayResult} style={{fontSize: "1.2rem", marginTop: 20}}>Review your assignment</a>
                             </div>
@@ -96,8 +96,8 @@ class EntryPractice extends Component {
                                 </div>
                                 
                                 {this.state.data.map((item, index) => (
-                                    <div>
-                                        <QuestionRadio item={item} id={item._id} index={index} key={item._id} radioOnchange={this.radioOnchange} />
+                                    <div  key={item._id}>
+                                        <QuestionRadio item={item} id={item._id} index={index} radioOnchange={this.radioOnchange} />
                                         <p 
                                             style={this.state.displayCorrect ? {display: 'block'} : {display: 'none'}} 
                                             className="correct"
