@@ -10,7 +10,7 @@ export default {
         return Api.post('login', user, requestOptions);
     },
 
-    logout(){
+    signout(){
         localStorage.removeItem("token");
     },
 

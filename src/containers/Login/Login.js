@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import './Login.scss';
 import {Form, Button} from 'react-bootstrap'
-import {useHistory} from 'react-router-dom'
+import userApi from '../../api/userApi';
+
+import {userAuth} from '../../auth/userAuth'
 
 class Login extends Component {
     constructor(props){
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errors: {}
         }
 
         this.handleChageMail = this.handleChageMail.bind(this);
@@ -26,8 +29,34 @@ class Login extends Component {
 
     login(e){
         e.preventDefault();
-        console.log(this.state);
-        console.log(useHistory);
+        const {email, password} = this.state;
+        if(email && password) {
+            userApi.login({
+                email: email,
+                password: password
+            }).then(res => {
+                if(res.data.cookie){ // login
+                    localStorage.setItem('access_tooken', res.data.cookie);
+                    const {history, location} = this.props;
+                    let { from } = location.state || { from: { pathname: "/" } };
+                    userAuth.authenticate(() => history.replace(from));
+                    
+                } else { // not login
+                    // Account not exist
+                    // Wrong password
+                }
+            })
+            
+
+        }
+        var errors = {};
+        if(!email) errors.email = 'Email is required!';
+        if(!password) errors.password = 'Password is required!';
+        this.setState({errors: errors});
+    }
+
+    test = () => {
+        
     }
 
     render() {
