@@ -1,9 +1,23 @@
+$mobile-width: 480px; 
+$tablet-width: 768px; 
+$desktop-width: 1024px;  
+
+@mixin mobile { @media (max-width: #{$mobile-width - 1px}) {     
+  @content;   
+ } 
+}  
 
 .menupage{
     position: fixed;
     width: 100vw;
     font-size: 1.1rem;
     z-index: 1;
+
+    @include mobile {
+        img {
+            height: 30px;
+        }
+    }
 
     &__link{
         color: rgb(20, 19, 19);

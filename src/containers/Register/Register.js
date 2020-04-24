@@ -31,11 +31,11 @@ class Register extends Component {
         if(email && password && name && rePassword && password === rePassword){
             // call Api here
             // redirect login page
-            userApi.create({
+            userApi.create(JSON.stringify({
                 email: email,
                 name: name,
                 password: password
-            }).then(res => {
+            })).then(res => {
                 if(true){   // if create account succes
                     this.setState({alertSuccess: true});
                     const {history} = this.props;

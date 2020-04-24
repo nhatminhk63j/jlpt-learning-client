@@ -1,12 +1,14 @@
 import Api from './Api'
 
+const requestOptions = {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+};
+
 export default {
     login(user){
-        const requestOptions = {
-            headers: {
-              'Content-Type': 'application/json'
-            },
-        };
+        
         return Api.post('login', user, requestOptions);
     },
 
@@ -15,6 +17,6 @@ export default {
     },
 
     create(user){
-        return Api.post('create', user);
+        return Api.post('create', user, requestOptions);
     }
 }

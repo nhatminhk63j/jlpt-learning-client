@@ -1,23 +1,81 @@
+$mobile-width: 480px; 
+$tablet-width: 768px; 
+$desktop-width: 1024px;  
+
+@mixin mobile { @media (max-width: #{$mobile-width - 1px}) {     
+  @content;   
+ } 
+}  
+
+@mixin tablet { @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {       
+   @content;   
+ } 
+}  
+
+@mixin desktop {   @media (min-width: #{$desktop-width}) {     
+  @content;  
+ } 
+}
+
 .homepage{
     padding-top: 60px;
 
     &__header{
         padding: 100px;
         background-color: rgb(243, 243, 255);
-        height: 60vh;
-        background-image: url(https://dethijlpt.com/static/media/logo2.png);
+        background-image: url(/assets/logo2.png);
         background-repeat: no-repeat;
         background-position: right;
         background-size: contain;
 
+        @include mobile{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &__icon {
+                display: none !important;
+            }
+        }
+
         &__title{
             font-size: 2.3rem;
             font-weight: 700;
+            text-shadow: 0px 0px 3px gray;
+            @include mobile{
+                font-size: 1.8rem;
+                width: 300px;
+                color: #fff;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: black;
+                text-shadow: 0px 0px 10px rgb(14, 0, 136);
+            }
+
+            @include tablet {
+                color: #fff;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: black;
+                text-shadow: 0px 0px 10px rgb(14, 0, 136);
+            }
+        }
+
+        &__description {
+            @include mobile{
+                display: none;
+            }
         }
 
         img{
             padding-right: 30px;
             margin-bottom: 50px;
+        }
+        
+        &__sort {
+            @include mobile {
+                display: flex;
+                flex-direction: column;
+            }
         }
 
         &__select{
@@ -25,10 +83,21 @@
             font-size: 1.2rem;
             display: inline-block;
             margin-right: 20px;
+            @include tablet {
+                width: 200px !important;
+            }
+            @include mobile {
+                width: 200px;
+            }
+
         }
         
         &__button{
             padding: 8px 20px;
+            @include mobile {
+                width: 200px;
+                margin-top: 20px;
+            }
         }
     }
 

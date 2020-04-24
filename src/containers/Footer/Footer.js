@@ -11,7 +11,7 @@ class Footer extends Component {
                 <Container>
                     <Row>
                         <Col md={8}>
-                            <img className="footer__img" height="50px" src="https://dethijlpt.com/static/media/dethijlpt-logo-white.png" alt=""/>
+                            <img className="footer__img" height="50px" src="/assets/dethijlpt-logo-white.png" alt=""/>
                             <p>
                                 <FontAwesomeIcon className="footer__icon" icon={faAddressCard} />
                                 <span>University of Engineering and Technology - 144 Xuan Thuy, Cau Giay, Ha Noi</span> <br/>
@@ -20,8 +20,8 @@ class Footer extends Component {
                             </p>
                         </Col>
                         <Col md={4}>
-                            <img className="footer__img" height="50px" src="https://dethijlpt.com/static/media/app_store_icon.png" alt=""/>
-                            <img className="footer__img" height="50px" src="https://dethijlpt.com/static/media/google_play_store_icon.png" alt=""/>
+                            <img className="footer__img" height="50px" src="/assets/app_store_icon.png" alt=""/>
+                            <img className="footer__img" height="50px" src="/assets/google_play_store_icon.png" alt=""/>
                         </Col>
                     </Row>
                 </Container>

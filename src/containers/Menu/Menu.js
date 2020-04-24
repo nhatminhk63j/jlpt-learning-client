@@ -23,7 +23,7 @@ class Menu extends Component {
             <BrowserRouter>
                 <Navbar bg="light" expand="lg" className="menupage">
                     <Container>
-                        <Navbar.Brand href="#"><img height="50px" src="https://dethijlpt.com/static/media/dethijlpt-logo.png" alt=""/></Navbar.Brand>
+                        <Navbar.Brand href="#"><img height="50px" src="/assets/dethijlpt-logo.png" alt=""/></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
