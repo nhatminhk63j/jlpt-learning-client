@@ -1,20 +1,19 @@
-import userApi from '../api/userApi'
 
-const userAuth = {
-    isAuthenticated: false,
+import cookie from 'js-cookie';
 
-    authenticate(callback){
-        this.isAuthenticated = true;
-
-        callback(); // run passed callback
-    },
-
-    signout(callback){
-        this.isAuthenticated = false;
-        userApi.signout();
-
-        callback(); // run passed callback
-    }
+export const getUserToken = () => {
+    return cookie.get('userToken');
 }
 
-export {userAuth}
+export const setUserToken = (token) => {
+    return cookie.set('userToken', token);
+}
+
+export const clearUserToken = () => {
+    return cookie.remove('userToken');
+}
+
+export const isLogin = () => {
+    const token = getUserToken();
+    return token ? true : false;
+}

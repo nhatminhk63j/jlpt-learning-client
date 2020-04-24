@@ -12,12 +12,7 @@
         }
     }
 
-    p.alert {
-        color: rgb(253, 31, 79);
-        font-size: 1rem;
-        padding: 0;
-        margin: 0;
-    }
+    
     
     .alert-success {
         background-color: rgb(76, 199, 76);
@@ -29,4 +24,11 @@
         right: 0;
         transition: all 5 ease-in;
     }
+}
+
+p.alert {
+    color: rgb(253, 31, 79);
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
 }

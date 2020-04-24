@@ -3,7 +3,7 @@ import {Navbar, Nav, Button, Container} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHome, faChartLine, faAngleDoubleRight, faSignInAlt, faKey} from '@fortawesome/free-solid-svg-icons';
 
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink, Redirect } from 'react-router-dom';
 import './Menu.scss';
 import Home from '../Home/Home';
 import Chart from '../Chart/Chart';
@@ -13,6 +13,9 @@ import Exams from '../Exams/Exams';
 import Practice from '../Practise/Practice';
 import PracticeTest from '../Practise/PracticeTest/PracticeTest';
 import EntryPractice from '../Practise/EntryPractice/EntryPractice';
+
+import {isLogin} from '../../auth/userAuth';
+
 
 class Menu extends Component {
     render() {
@@ -39,16 +42,45 @@ class Menu extends Component {
                 </Navbar>
 
                 <Route exact path="/" component={Home} />
-                <Route exact path="/chart" component={Chart} />
+
+                <Route exact path="/chart" >
+                    <Chart />
+                </Route>
+
                 <Route exact path="/practice" component={Practice} />
+
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/exams/:id" component={Exams} />
+
                 <Route exact path="/practice/:level/:category" component={PracticeTest} />
-                <Route exact path="/practice/:level/:category/:id" component={EntryPractice} />
+
+                <PrivateRoute exact path="/practice/:level/:category/:id">
+                      <EntryPractice />
+                </PrivateRoute>
             </BrowserRouter>
         );
     }
 }
+
+function PrivateRoute({ children, ...rest }) {
+    return (
+      <Route
+        {...rest}
+        render={({ location }) =>
+          isLogin() ? (
+            children
+          ) : (
+            <Redirect
+              to={{
+                pathname: "/login",
+                state: { from: location }
+              }}
+            />
+          )
+        }
+      />
+    );
+  }
 
 export default Menu;

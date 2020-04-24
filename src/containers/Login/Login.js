@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Login.scss';
 import {Form, Button} from 'react-bootstrap'
 import userApi from '../../api/userApi';
+import { setUserToken } from '../../auth/userAuth';
 
-import {userAuth} from '../../auth/userAuth'
 
 class Login extends Component {
     constructor(props){
@@ -35,18 +35,16 @@ class Login extends Component {
                 email: email,
                 password: password
             }).then(res => {
-                if(res.data.cookie){ // login
-                    localStorage.setItem('access_tooken', res.data.cookie);
-                    const {history, location} = this.props;
-                    let { from } = location.state || { from: { pathname: "/" } };
-                    userAuth.authenticate(() => history.replace(from));
-                    
-                } else { // not login
-                    // Account not exist
-                    // Wrong password
+                if(res.data.cookie){ // login success
+                    setUserToken(res.data.cookie);
+                    const {location, history} = this.props;
+                    const from = location.state.from || {pathname: '/'};
+                    history.replace(from);
+                } else { // login fail
+                    const errors = {message: res.data.message};
+                    this.setState({errors: errors});
                 }
             })
-            
 
         }
         var errors = {};
@@ -55,18 +53,30 @@ class Login extends Component {
         this.setState({errors: errors});
     }
 
-    test = () => {
-        
+    testLogin = (e) => {
+        e.preventDefault();
+        setUserToken('abc')
+        const {location, history} = this.props;
+        const from = location.state.from || {pathname: '/'};
+        history.replace(from);
     }
 
+
     render() {
+        const {errors, email, password} = this.state;
         return (
             <div className="login d-flex flex-column align-items-center justify-content-center">
                 <h4>Login</h4>
                 <Form className="login__form">
+                    {
+                        errors.message && <p className="alert">Login fail: {errors.message} </p>
+                    }
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={this.handleChageMail} />
+                        {
+                            errors.email && <p className="alert">* {errors.email} </p>
+                        }
+                        <Form.Control type="email" placeholder="Enter email" value={email} onChange={this.handleChageMail} />
                         <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                         </Form.Text>
@@ -74,10 +84,13 @@ class Login extends Component {
 
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" onChange={this.handleChangePassword} />
+                        {
+                            errors.password && <p className="alert">* {errors.email} </p>
+                        }
+                        <Form.Control type="password" placeholder="Password" value={password} onChange={this.handleChangePassword} />
                     </Form.Group>
                     <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Save login accout for next time" />
+                        <Form.Check type="checkbox" label="Save login account for next time" />
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={this.login}>
                         Login
