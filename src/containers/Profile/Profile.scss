@@ -19,16 +19,16 @@ $desktop-width: 1024px;
     .table {
         
         th, td {
-            padding: 10 30px;
+            padding: 10px 10px;
         }
 
         @include mobile {
             .exam-name {
                 display: none;
             }
-            td, th {
-                padding: 10px 5px;
-            }
+            // td, th {
+            //     padding: 10px 10px;
+            // }
         }
     }
 

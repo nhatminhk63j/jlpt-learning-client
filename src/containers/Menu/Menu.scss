@@ -11,7 +11,7 @@ $desktop-width: 1024px;
     position: fixed;
     width: 100vw;
     font-size: 1.1rem;
-    z-index: 1;
+    z-index: 99;
 
     @include mobile {
         img {

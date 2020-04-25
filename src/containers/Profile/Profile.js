@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Profile.scss';
+import { Table } from 'react-bootstrap';
 
 class Profile extends Component {
     constructor(props) {
@@ -18,11 +19,11 @@ class Profile extends Component {
         return (
             <div className="profile">
                 <div className="container">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6 profile-container">
-                        <div className="profile-process">
+                    <div className="row">
+                        <div className="col-md-2"></div>
+                        <div className="col-md-8 profile-container">
                             <h2>{this.state.user.name}' process: </h2>
-                            <table className="table table-lg">
+                            <Table responsive bordered>
                                 <tr>
                                     <th className="exam-name">Exam's name</th>
                                     <th>Level</th>
@@ -41,7 +42,7 @@ class Profile extends Component {
                                         </tr>
                                     ))
                                 }
-                            </table>
+                            </Table>
 
                             <nav aria-label="Page navigation example">
                                 <ul className="pagination">
@@ -60,9 +61,21 @@ class Profile extends Component {
                                     </li>
                                 </ul>
                             </nav>
+
+                            <div className="d-flex" style={{width: "100%"}}>
+                                
+                                    <a href="/practice" className="btn btn-primary mr-4" style={{width: "50%"}}>
+                                        Practice now
+                                    </a>
+                                
+                                <a href="/exam" className="btn btn-primary" style={{width: "50%"}}>
+                                        Test now
+                                    </a>
+                                
+                            </div>
                         </div>
+                        <div className="col-md-2"></div>
                     </div>
-                    <div className="col-md-3"></div>
                 </div>
             </div>
         );

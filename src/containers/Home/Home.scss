@@ -33,36 +33,38 @@ $desktop-width: 1024px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: relative;
+            height: 100vh;
 
             &__icon {
-                display: none !important;
+                height: 50px;
+                img {
+                    height: 35px;
+                    z-index: 1;
+                }
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: rgb(2,0,36);
+                background: linear-gradient(45deg, rgb(24, 20, 107) 0%, rgba(30,30,167,1) 15%, rgba(92,107,201,0.6958949056903967) 78%, rgb(176, 127, 255) 105%);
+                z-index: 0;
             }
         }
 
         &__title{
             font-size: 2.3rem;
             font-weight: 700;
-            text-shadow: 0px 0px 3px gray;
+            z-index: 1;
             @include mobile{
                 font-size: 1.8rem;
+                text-align: left;
                 width: 300px;
-                color: #fff;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: black;
-                text-shadow: 0px 0px 10px rgb(14, 0, 136);
-            }
-
-            @include tablet {
-                color: #fff;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: black;
-                text-shadow: 0px 0px 10px rgb(14, 0, 136);
-            }
-        }
-
-        &__description {
-            @include mobile{
-                display: none;
+                padding-left: 10px;
+                color: rgb(253, 253, 253);
             }
         }
 
@@ -72,9 +74,12 @@ $desktop-width: 1024px;
         }
         
         &__sort {
+            z-index: 1;
             @include mobile {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
             }
         }
 
@@ -83,20 +88,23 @@ $desktop-width: 1024px;
             font-size: 1.2rem;
             display: inline-block;
             margin-right: 20px;
+            color: black;
             @include tablet {
                 width: 200px !important;
             }
             @include mobile {
-                width: 200px;
+                width: 120px;
+                margin: 0;
             }
 
         }
         
         &__button{
-            padding: 8px 20px;
+            
+            font-size: 1.2rem;
             @include mobile {
-                width: 200px;
-                margin-top: 20px;
+                margin-left: 10px;
+                width: 150px;
             }
         }
     }
