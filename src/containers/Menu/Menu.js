@@ -15,6 +15,7 @@ import PracticeTest from '../Practise/PracticeTest/PracticeTest';
 import EntryPractice from '../Practise/EntryPractice/EntryPractice';
 
 import {isLogin, clearUserToken} from '../../auth/userAuth';
+import Profile from '../Profile/Profile';
 
 
 class Menu extends Component {
@@ -25,6 +26,7 @@ class Menu extends Component {
       }
     }
     render() {
+      console.log(this.state.isLogin)
         return (
             <BrowserRouter>
                 <Navbar bg="light" expand="lg" className="menupage">
@@ -36,7 +38,7 @@ class Menu extends Component {
                             <NavLink exact={true} to="/" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faHome} /> Home</NavLink>
                             <NavLink to="/chart" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faChartLine} /> Chart</NavLink>
                             </Nav>
-                            <div>
+                            <div className="menupage__group">
                                 <NavLink to="/practice" activeClassName="active-link" className="menupage__link">
                                     <Button variant="danger" className="menupage__link__button"><FontAwesomeIcon icon={faAngleDoubleRight} /> Practise</Button>
                                 </NavLink>
@@ -72,6 +74,10 @@ class Menu extends Component {
 
                 <PrivateRoute exact path="/practice/:level/:category/:id">
                       <EntryPractice />
+                </PrivateRoute>
+
+                <PrivateRoute exact path="/profile">
+                  <Profile />
                 </PrivateRoute>
             </BrowserRouter>
         );

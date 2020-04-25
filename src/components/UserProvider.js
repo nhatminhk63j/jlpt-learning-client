@@ -5,7 +5,11 @@ import UserContext from '../contexts/UserContext';
 class UserProvider extends Component {
     constructor(props){
         super(props);
-        this.state = JSON.parse(sessionStorage.getItem("user"));
+        this.state = JSON.parse(sessionStorage.getItem("user")) || {
+            name: '',
+            email: '',
+            id: ''
+        };
     }
 
     saveUser = (user) => {

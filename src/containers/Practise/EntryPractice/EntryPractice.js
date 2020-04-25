@@ -85,7 +85,7 @@ class EntryPractice extends Component {
                                 <a href="" onClick={this.displayResult} style={{fontSize: "1.2rem", marginTop: 20}}>Review your assignment</a>
                             </div>
                             <div style={this.state.displayResult ? {display: 'none'} : {display: 'block'}}>
-                                {this.state.data.length && this.state.displayTiming && <Countdown time={300} callback={this.finishExam} /> }
+                                {this.state.data.length ? this.state.displayTiming && <Countdown time={300} callback={this.finishExam} /> : ''}
                                 <p className="title-entry-practice"> 質問を注意深く読み、最も正確な答えを選択してください。</p>
                                 <div 
                                     className="text-center" 
