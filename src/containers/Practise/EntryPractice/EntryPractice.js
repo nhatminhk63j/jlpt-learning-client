@@ -14,6 +14,7 @@ class EntryPractice extends Component {
             result: {},
             displayResult: false,
             displayCorrect: false,
+            displayTiming: true,
             point: 0
         }
 
@@ -55,7 +56,7 @@ class EntryPractice extends Component {
 
     displayResult = (e) => {
         e.preventDefault();
-        this.setState({displayResult: false});
+        this.setState({displayResult: false, displayTiming: false});
     }
 
     render() {
@@ -79,12 +80,12 @@ class EntryPractice extends Component {
                             <div style={this.state.displayResult ? {display: 'block'} : {display: 'none'}}>
                                 <h3 >Result: {` ${this.state.point}/10`} </h3>
                                 <div className="progress">
-                                    <div className="progress-bar w-75" role="progressbar" aria-valuenow={this.state.point} aria-valuemin="0" aria-valuemax="10"></div>
+                                    <div className="progress-bar" style={{width: this.state.point * 10 + "%"}} role="progressbar" aria-valuenow={this.state.point} aria-valuemin="0" aria-valuemax="10"></div>
                                 </div>
                                 <a href="" onClick={this.displayResult} style={{fontSize: "1.2rem", marginTop: 20}}>Review your assignment</a>
                             </div>
                             <div style={this.state.displayResult ? {display: 'none'} : {display: 'block'}}>
-                                {this.state.data.length ? <Countdown time={300} callback={this.finishExam} /> : ''}
+                                {this.state.data.length && this.state.displayTiming && <Countdown time={300} callback={this.finishExam} /> }
                                 <p className="title-entry-practice"> 質問を注意深く読み、最も正確な答えを選択してください。</p>
                                 <div 
                                     className="text-center" 
