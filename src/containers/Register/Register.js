@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Register.scss';
 import {Form, Button} from 'react-bootstrap'
 import userApi from '../../api/userApi';
+import { isLogin } from '../../auth/userAuth';
+import { Redirect } from 'react-router-dom';
 
 class Register extends Component {
     constructor(props){
@@ -60,10 +62,12 @@ class Register extends Component {
     }
 
     componentWillUnmount(){
-
+        clearTimeout(this.setTimeoutId);
     }
 
     render() {
+        if(isLogin()) return <Redirect to="/" /> ;
+
         const {errors, email, name, password, rePassword, alertSuccess} = this.state;
         return (
            

@@ -9,8 +9,10 @@ export const setUserToken = (token) => {
     return cookie.set('userToken', token);
 }
 
-export const clearUserToken = () => {
-    return cookie.remove('userToken');
+export const clearUserToken = (callback) => {
+    cookie.remove('userToken');
+    return callback();
+    
 }
 
 export const isLogin = () => {

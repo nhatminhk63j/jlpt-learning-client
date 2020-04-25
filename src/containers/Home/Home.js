@@ -3,9 +3,11 @@ import './Home.scss';
 import Select from 'react-select';
 import {Button, Row, Col} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faFilter, faSearch} from '@fortawesome/free-solid-svg-icons';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
 import CardTest from '../../components/CardTest/CardTest';
 import Footer from '../Footer/Footer'
+import UserProvider from '../../components/UserProvider';
+import UserContext from '../../contexts/UserContext';
 
 const options = [
     { value: '1', label: 'N1' },
@@ -59,6 +61,7 @@ class Home extends Component {
                         <div className="container">
                             <h2>Standardized test</h2>
                             <p>Standard exam questions are updated continuously</p>
+                            
                         </div>
                     </div>
                     <div className="container">

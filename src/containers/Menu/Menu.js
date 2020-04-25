@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Navbar, Nav, Button, Container} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHome, faChartLine, faAngleDoubleRight, faSignInAlt, faKey} from '@fortawesome/free-solid-svg-icons';
+import {faHome, faChartLine, faAngleDoubleRight, faSignInAlt, faKey, faUser} from '@fortawesome/free-solid-svg-icons';
 
 import { BrowserRouter, Route, NavLink, Redirect } from 'react-router-dom';
 import './Menu.scss';
@@ -14,10 +14,16 @@ import Practice from '../Practise/Practice';
 import PracticeTest from '../Practise/PracticeTest/PracticeTest';
 import EntryPractice from '../Practise/EntryPractice/EntryPractice';
 
-import {isLogin} from '../../auth/userAuth';
+import {isLogin, clearUserToken} from '../../auth/userAuth';
 
 
 class Menu extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        isLogin: isLogin()
+      }
+    }
     render() {
         return (
             <BrowserRouter>
@@ -34,8 +40,17 @@ class Menu extends Component {
                                 <NavLink to="/practice" activeClassName="active-link" className="menupage__link">
                                     <Button variant="danger" className="menupage__link__button"><FontAwesomeIcon icon={faAngleDoubleRight} /> Practise</Button>
                                 </NavLink>
-                                <NavLink to="/login" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faSignInAlt} /> Login</NavLink>
-                                <NavLink to="/register" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faKey} /> Register</NavLink>
+                                {
+                                  !this.state.isLogin ? <NavLink to="/login" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faSignInAlt} /> Login</NavLink>
+                                    : (
+                                        <span>
+                                          <NavLink to="/profile" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faUser} /> Profile</NavLink>
+                                          <NavLink to="/" className="menupage__link btn btn-default" onClick={() => clearUserToken(() => this.setState({isLogin: false}))}><FontAwesomeIcon icon={faSignInAlt} /> Logout</NavLink>
+                                        </span>
+                                      )
+                                }
+
+                                { !this.state.isLogin && <NavLink to="/register" activeClassName="active-link" className="menupage__link"><FontAwesomeIcon icon={faKey} /> Register</NavLink>}
                             </div>
                         </Navbar.Collapse>
                     </Container>

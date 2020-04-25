@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import './Login.scss';
 import {Form, Button} from 'react-bootstrap'
 import userApi from '../../api/userApi';
-import { setUserToken } from '../../auth/userAuth';
+import { setUserToken, isLogin } from '../../auth/userAuth';
+import {Redirect} from 'react-router-dom';
+import UserProvider from '../../components/UserProvider';
+import UserContext from '../../contexts/UserContext'
 
 
 class Login extends Component {
@@ -27,14 +30,10 @@ class Login extends Component {
         this.setState({password: e.target.value})
     }
 
-    login(e){
+    login(e, callback){
         e.preventDefault();
         const {email, password} = this.state;
         if(email && password) {
-            console.log(JSON.stringify({
-                email: email,
-                password: password
-            }))
             userApi.login(JSON.stringify({
                 email: email,
                 password: password
@@ -46,7 +45,13 @@ class Login extends Component {
                     if(location.state){
                         from = location.state.from;
                     }
+                    sessionStorage.setItem("user", JSON.stringify({
+                        email: email,
+                        name: res.data.user[0].name,
+                        id: res.data.user[0].id
+                    }))
                     history.replace(from);
+                    window.location.reload();
                 } else { // login fail
                     const errors = {message: res.data.message};
                     this.setState({errors: errors});
@@ -56,24 +61,22 @@ class Login extends Component {
         }
         var errors = {};
         if(!email) errors.email = 'Email is required!';
+        else {
+            if(email.indexOf('@') < 0) errors.email = "This is not a email!"
+        }
         if(!password) errors.password = 'Password is required!';
         this.setState({errors: errors});
     }
 
-    testLogin = (e) => {
-        e.preventDefault();
-        setUserToken('abc')
-        const {location, history} = this.props;
-        const from = location.state.from || {pathname: '/'};
-        history.replace(from);
-    }
-
 
     render() {
+        if(isLogin()) return (<Redirect to="/" />); // when have user active
+
         const {errors, email, password} = this.state;
         return (
             <div className="login d-flex flex-column align-items-center justify-content-center">
                 <h4>Login</h4>
+                
                 <Form className="login__form">
                     {
                         errors.message && <p className="alert">Login fail: {errors.message} </p>
@@ -99,9 +102,11 @@ class Login extends Component {
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Save login account for next time" />
                     </Form.Group>
+                    
                     <Button variant="primary" type="submit" onClick={this.login}>
-                        Login
+                        Login 
                     </Button>
+                    
                 </Form>
             </div>
         );
