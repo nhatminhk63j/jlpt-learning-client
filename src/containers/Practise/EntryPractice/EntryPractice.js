@@ -28,7 +28,7 @@ class EntryPractice extends Component {
     }
 
     componentDidMount(){
-        Axios.get('https://jplt-server.herokuapp.com' + this.state.path).then((res) => {
+        Axios.get('https://jlpt-learning.herokuapp.com' + this.state.path).then((res) => {
             this.setState({data: res.data});
         })
     }
@@ -39,14 +39,14 @@ class EntryPractice extends Component {
         const {data, result} = this.state;
         let point = 0;
         for(let item of data) {
-            if(result[item._id] === item.key) {
-                let styleLabel = document.getElementById(item._id + '.' + result[item._id]).parentNode.style;
+            if(result[item.id] === item.key) {
+                let styleLabel = document.getElementById(item.id + '.' + result[item.id]).parentNode.style;
                 styleLabel.backgroundColor = "#d4edda";
                 styleLabel.color = "#155724";
                 point++;
             }
-            else if(result[item._id]){
-                let styleLabel = document.getElementById(item._id + '.' + result[item._id]).parentNode.style;
+            else if(result[item.id]){
+                let styleLabel = document.getElementById(item.id + '.' + result[item.id]).parentNode.style;
                 styleLabel.backgroundColor = "#f8d7da";
                 styleLabel.color = "#721c24";
             }
@@ -97,8 +97,8 @@ class EntryPractice extends Component {
                                 </div>
                                 
                                 {this.state.data.map((item, index) => (
-                                    <div  key={item._id}>
-                                        <QuestionRadio item={item} id={item._id} index={index} radioOnchange={this.radioOnchange} />
+                                    <div  key={item.id}>
+                                        <QuestionRadio item={item} id={item.id} index={index} radioOnchange={this.radioOnchange} />
                                         <p 
                                             style={this.state.displayCorrect ? {display: 'block'} : {display: 'none'}} 
                                             className="correct"

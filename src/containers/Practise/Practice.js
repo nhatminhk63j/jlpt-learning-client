@@ -14,19 +14,19 @@ class Practice extends Component {
                         </div>
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n5/vocabulary">Vocabulary</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N5/vocabulary">Vocabulary</a></div>
                             </div>
                         </div>
                         
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n5/kanji">Kanji</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N5/kanji">Kanji</a></div>
                             </div>
                         </div>
 
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n5/grammar">Grammar</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N5/grammar">Grammar</a></div>
                             </div>
                         </div>
                     </div>
@@ -37,19 +37,19 @@ class Practice extends Component {
                         </div>
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n4/vocabulary">Vocabulary</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N4/vocabulary">Vocabulary</a></div>
                             </div>
                         </div>
                         
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n4/kanji">Kanji</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N4/kanji">Kanji</a></div>
                             </div>
                         </div>
 
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n4/grammar">Grammar</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N4/grammar">Grammar</a></div>
                             </div>
                         </div>
                     </div>
@@ -60,19 +60,19 @@ class Practice extends Component {
                         </div>
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n3/vocabulary">Vocabulary</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N3/vocabulary">Vocabulary</a></div>
                             </div>
                         </div>
                         
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n3/kanji">Kanji</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N3/kanji">Kanji</a></div>
                             </div>
                         </div>
 
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n3/grammar">Grammar</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N3/grammar">Grammar</a></div>
                             </div>
                         </div>
                     </div>
@@ -83,19 +83,19 @@ class Practice extends Component {
                         </div>
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n2/vocabulary">Vocabulary</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N2/vocabulary">Vocabulary</a></div>
                             </div>
                         </div>
                         
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n2/kanji">Kanji</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N2/kanji">Kanji</a></div>
                             </div>
                         </div>
 
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n2/grammar">Grammar</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N2/grammar">Grammar</a></div>
                             </div>
                         </div>
                     </div>
@@ -106,19 +106,19 @@ class Practice extends Component {
                         </div>
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n1/vocabulary">Vocabulary</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N1/vocabulary">Vocabulary</a></div>
                             </div>
                         </div>
                         
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n1/kanji">Kanji</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N1/kanji">Kanji</a></div>
                             </div>
                         </div>
 
                         <div className="col-md-3">
                             <div className="card-practice">
-                                <div className="btn btn-default btn-practice"><a href="/practice/n1/grammar">Grammar</a></div>
+                                <div className="btn btn-default btn-practice"><a href="/practice/N1/grammar">Grammar</a></div>
                             </div>
                         </div>
                     </div>

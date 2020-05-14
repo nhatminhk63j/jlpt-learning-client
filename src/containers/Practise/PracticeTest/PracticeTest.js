@@ -13,7 +13,7 @@ class PracticeTest extends Component {
     }
 
     componentDidMount(){
-        Axios.get('https://jplt-server.herokuapp.com' + this.state.path).then((res) => {
+        Axios.get('https://jlpt-learning.herokuapp.com' + this.state.path).then((res) => {
             this.setState({data: res.data});
         })
     }
@@ -36,11 +36,11 @@ class PracticeTest extends Component {
                     {data.length ? <div className="row practice-list">
                         
                         {data.map((item, index) => (
-                            <div className="practice-item col-md-12" key={item._id}>
+                            <div className="practice-item col-md-12" key={item.id}>
                                 <div className="d-flex justify-content-around align-items-center">
                                 <h5>Exam number {` ${++index}`}</h5>
                                     <button className="btn btn-primary">
-                                        <a href={path + '/' + item._id}>Practice now</a>
+                                        <a href={path + '/' + item.id}>Practice now</a>
                                     </button>
                                 </div>
                             </div>
